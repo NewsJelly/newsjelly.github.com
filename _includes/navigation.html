@@ -1,16 +1,22 @@
 <div class="navigation-wrapper">
+	<form method="get" action="{{ site.url }}/search/">
 	<nav role="navigation" id="site-nav" class="animated drop">
-	    <ul>
-      {% for link in site.data.navigation %}
-		    {% if link.url contains 'http' %}
-		        {% assign domain = '' %}
+		<ul>
+		{% for link in site.data.navigation %}
+			{% if link.url contains 'http' %}
+		        	{% assign domain = '' %}
 		        {% else %}
-		        {% assign domain = site.url %}
-		    {% endif %}
-		    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-		  {% endfor %}
-	    </ul>
+		        	{% assign domain = site.url %}
+			{% endif %}
+		<li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		{% endfor %}
+
+		<!-- Search form -->
+			<li><input type="search" name="q" data-search-input placeholder="내용을 입력해주세요." autofocus /></li>
+			<li><input type="submit" value="검색" /></li>
+		</ul>
 	</nav>
+	</form>
 </div><!-- /.navigation-wrapper -->
 
 {% include browser-upgrade.html %}

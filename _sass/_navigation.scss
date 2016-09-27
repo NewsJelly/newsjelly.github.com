@@ -40,10 +40,12 @@
     }
   }
 
-  a {
+  a, input {
     display: block;
     margin-bottom: 10px;
     padding: 12px 20px;
+    background-color: $black;
+    border: 0;
 
     @include media($medium) {
       margin-bottom: 0;
@@ -87,6 +89,7 @@
 
     li {
       float: none;
+      text-align: center;
 
       @include media($medium) {
         float: left;
